@@ -39,11 +39,8 @@ class ContaCorrente extends conta {
   }
 
   sacar(valor) {
-    if(this.saldo < valor) {
+    if(valor > (this.limite+this.saldo)) {
       return 'Saldo insuficiente';
-    }
-    else if( valor > this.limite){
-      return 'Operação inválida pois excede os limites da conta';
     }
     else {
       this.saldo -= valor;
@@ -61,13 +58,13 @@ class ContaCorrente extends conta {
   }
 }
 
-// const conta1 = new conta(0,1);
+ const conta1 = new conta(0,1);
 
-// console.log(`Conta id: ${conta1.id}, saldo: ${conta1.saldo}`);
+ console.log(`Conta id: ${conta1.id}, saldo: ${conta1.saldo}`);
 
-// console.log(conta1.depositar(100));
+ console.log(conta1.depositar(100));
 
-// console.log(conta1.sacar(300));
+ console.log(conta1.sacar(300));
 
 const contaCorrente1 = new ContaCorrente (0, 2, 500)
 
@@ -77,6 +74,6 @@ console.log(contaCorrente1.depositar(2000));
 console.log(contaCorrente1.getSaldo());
 
 
-console.log(contaCorrente1.sacar(800));
+console.log(contaCorrente1.sacar(600));
 
 
